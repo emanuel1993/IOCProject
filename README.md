@@ -6,7 +6,7 @@
 # Membrii (toti de la grupa 342 C4):
 - Antonache Emanuel, antonacheemanuel2007@gmail.com
 - Jalba Cristian, jalba.cristian0493@gmail.com
-- Neagu Constantin, TODO
+- Neagu Constantin, constantin.neagu.office@gmail.com
 
 # Tema proiect: 
 - TODO
