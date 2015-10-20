@@ -20,6 +20,7 @@
 - MySQL Community Server version 5.6.27 - http://dev.mysql.com/downloads/mysql/
 - Spring MVC version 4.2.2 - http://projects.spring.io/spring-framework/
 - Apache Tomcat version 8.0.28 - http://tomcat.apache.org/download-80.cgi
+
 Toate aceste tehnologii mentionate sunt gratuite, iar unele sunt open source.
 
 # IDE:
