@@ -1,11 +1,14 @@
 # IOCProject
 
 Nume echipa: TODO
+
 Membrii (toti de la grupa 342 C4):
 - Antonache Emanuel, antonacheemanuel2007@gmail.com
 - Jalba Cristian, jalba.cristian0493@gmail.com
 - Neagu Constantin, TODO
+
 Tema proiect: TODO
+
 Motivatie alegere tema: TODO
 
 Am decis sa lucram acest proiect folosind urmatoarele tehnologii:
