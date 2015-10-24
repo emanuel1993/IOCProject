@@ -6,7 +6,6 @@
 - https://www.lostandfound.com/
 - http://www.brighthubengineering.com/seafaring/38464-different-types-of-searches-or-search-patterns/
 - https://www.missionmanager.com/
-- 
 
 
 # Nume echipa: 
