@@ -11,10 +11,10 @@
 # Team Name:
 - CEJAN
 
-# Members (all from 342 C4):
-- Antonache Emanuel Adrian, antonacheemanuel2007@gmail.com
-- Jalba Cristian, jalba.cristian0493@gmail.com
-- Neagu Constantin, constantin.neagu.office@gmail.com
+# Members:
+- Antonache Emanuel Adrian, 342 C4, antonacheemanuel2007@gmail.com
+- Jalba Cristian, 342 C4, jalba.cristian0493@gmail.com
+- Neagu Constantin, 342 C4, constantin.neagu.office@gmail.com
 - Cretan Andrada Bianca, bianca.andrada.cretan@gmail.com
 
 # Project theme:
@@ -43,6 +43,12 @@
 13. Participants can come with their own equipment, which can be put together in a pool of assets and can then be distributed to the most suited team members with the help of the system. The equipment can also be tracked and made sure it is not misplaced.
 14. Image based identification capabilities (a person who found something will take a picture, and the system can decide if it's a lost object or pet).
 15. Biometrics based identification capabilities, for those situations when we are dealing with missing humans.
+
+# Images used to 
+1. newspaperads.png - as we can see, the newspaper is inefficient and offers little information, and in case we want more information, 
+we have to send a mail, or contact them via telephone, or even go to their house (which happens in this very example).
+2. missionmanagerdotcomprices.png - depicts the fact that professional systems are too expensive for the casual user and allow for a very small network.
+3. lostandfound.png - depiction of limited functionality in an unorganised manner.
 
 # Proposed technologies:
 - Java for backend, version 8 update 60 - https://java.com/en/download/
