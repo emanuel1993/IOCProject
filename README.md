@@ -9,13 +9,13 @@
 
 
 # Team Name:
-- CEJAN
+- CMT (Coding Master Team)
 
 # Members:
 - Antonache Emanuel Adrian, 342 C4, antonacheemanuel2007@gmail.com
+- Cretan Andrada Bianca, bianca.andrada.cretan@gmail.com
 - Jalba Cristian, 342 C4, jalba.cristian0493@gmail.com
 - Neagu Constantin, 342 C4, constantin.neagu.office@gmail.com
-- Cretan Andrada Bianca, bianca.andrada.cretan@gmail.com
 
 # Project theme:
 - An online system that can assist individuals in finding missing people, animals or objects by providing specific tools in order to efficiently distribute the effort among all the volunteers or stakeholders.
