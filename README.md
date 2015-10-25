@@ -8,54 +8,55 @@
 - https://www.missionmanager.com/
 
 
-# Nume echipa: 
+# Team Name:
 - CEJAN
 
-# Membrii (toti de la grupa 342 C4):
+# Members (all from 342 C4):
 - Antonache Emanuel, antonacheemanuel2007@gmail.com
 - Jalba Cristian, jalba.cristian0493@gmail.com
 - Neagu Constantin, constantin.neagu.office@gmail.com
 
-# Tema proiect: 
-- An online platform with the purpose of posting announcements of missing people, animals or even objects.
+# Project theme:
+- An online system that can assist individuals in finding missing people, animals or objects by providing specific tools in order to efficiently distribute the effort among all the volunteers or stakeholders.
 
-# Motivatie alegere tema: 
-- Newspaper lost/found articles are not interactive 
-- they offer you little opportunity to interact with the members of search effort, and also coordinate and monitor the status of the mission
-- they are hard to update
-- same about posters or flyers
-- all the platforms are too static for our point of view
-- a platform to coordinate the search efforts for the community in real time
-1. we wanted to implement a GPS System, but decided not to due to lack of experience and hardware cost (real time team search mostly impossible to do)
-2. we want to implement a map with grid where we can send people to different locations using flags, and people have to prove by taking a photo that a location was searched;
-3,12. users will have a rating based on progress (success rate) and also a user profile where it sais various details about the person (user rating system + user profile with information about useful skills and equipment)
-4. on zones with no GSM signal, we need but can't implement a routing algorithm on hardware for message relaying --> lack of hardware resources, much software development time etc.
-5. aerial drone support is impossible -> call drone to the person which wants to see a certain locations which he doesn't have access to; once the drone sees the target, should automatically follow it -> hard to implement
-6. a payment system based on results, which will be done in the future
-7. already existing lost and found projects which offer team management are expensive; we want to develop something free and efficient
-8. a device inserted into objects or in items worn by humans/animals, with the help of whom we can track them real-time
-9. a user friendly platform, as all the existing platforms can't maintain an equilibre between functionality and easy of use
-10. a worldwide system, available for any country
-11. integration with state/private institutes
-13. every person can come with its own equipments, which will be put together in a pool of assets that can be distributes to the most suited team members, also tracked and made sure they are not misplaced and used at the 
-full pottential
-14. image based target indentification service based on byometric signatures (a person who found something will take a picture, and if that picture looks like a missing object, it's ok)
-15. difficulty: reward system hard to implement because we have to reward not only the person who found the object, but the whole team, based on their actualt contribution to the progress
+# Motivation:
+  The search & rescue/recovery sector is not something that many people care about on a daily basis. Depending on the magnitude of the loss, people either go to the local authorities or use one of the classical lost and found outlets (newspapers, lamp posts, various other public areas (including Facebook), dedicated departments that some institutions are providing for such a scope, etc.). Looking at incidents from the bottom of the magnitude scale, the methods available have a relatively limited reach, allow for little bidirectional feedback and knowledge buildup (a mandatory feature if one can hope at an intelligent system). At this level, people should not be worried (so much) about valuables forgotten in public transport or stolen goods, because they have a way of reporting the loss. By doing so, the individual who finds the items in questions can quickly get in touch with the rightful owner, and the thief is strongly discouraged to valorify the capture, because it is blacklisted in a accessible place. This approach will contribute in the prevention of robberies especially for portable electronic devices that have a lot of identification information embedded (IMEI, Serial Numbers, License numbers, etc.), but not only (cars, motorcycles, tools and equipment, etc.).
+  Moving up the magnitude scale of the incident, pet recovery can be vastly improved by organizing and managing a search mission with volunteers, empowered by a platform that can provide geographical and situational awareness, in order to maximize the chances of a positive outcome. All the previously mentioned observations also apply to pets.
+  A similar approach can be employed when we are talking about missing humans. Although in such cases the full implication of specialized institutions in a given, it is not always the case or the efficiency is questionable. Less developed regions have a low chance of having a motivated, well trained, fully equipped search and rescue force. Volunteers are used quite frequently in order to complement the professionals.
+  In the most fortunate of cases the specialists will use some sort of system in order to properly manage the mission, however it is very hard to
+  integrate the volunteers into it, because of various considerations. The interface between the two types of teams can be vastly improved by a
+  readily available platform that has the necessary functionality to track and organize the volunteer activity. There is quite often the case for a search operation to continue even after the authorities have retreated, and we can say that the value of the system is growing fantastically in such a scenario, because advanced mission management systems are very expensive, hard to use and lack the all important social interactivity that can be crucial for a loosely coupled team.
 
-# Tehnologii folosite:
+1. Such a platform should have a certain level of integration with the GPS System, but the challenges in implementing such a feature are pretty high.
+2. Using a map divided into sectors (a grid basically) and relying on personal position reporting should suffice for a case study.  
+3. Volunteers (or not, aka people that do the searching for the reward) should have a rating based on success rate.
+4. Volunteers should have a profile with various details about the useful skills and/or equipment the person might have.
+5. In zones with no GSM signal, a multi-hop message passing protocol would be very useful in order to ensure that every member of the team remains reachable.
+6. The possibility of allowing aerial support via drones. One could call in a drone to get a better perspective of the area/location.
+7. In the case where the search effort is financially motivated, there should be a way of rewarding the participants based on involvement.
+8. Existing lost and found projects which offer team management are expensive; we want to develop something free and efficient.
+9. Integration with wearable devices that can inserted into objects or in items worn by humans/animals, with the help of which we can benefit of real-time tracking.
+10. User friendly platform, as all the existing solutions do not maintain an equilibrium between functionality and accessibility.
+11. For best results this should be a worldwide system, available in every region.
+12. And it should be acknowledged and used by state/private institutes.
+13. Participants can come with their own equipment, which can be put together in a pool of assets and can then be distributed to the most suited team members with the help of the system. The equipment can also be tracked and made sure it is not misplaced.
+14. Image based identification capabilities (a person who found something will take a picture, and the system can decide if it's a lost object or pet).
+15. Biometrics based identification capabilities, for those situations when we are dealing with missing humans.
+
+# Proposed technologies:
 - Java for backend, version 8 update 60 - https://java.com/en/download/
 - Hibernate, version 5.0.2 final - http://hibernate.org/orm/
 - MySQL Community Server version 5.6.27 - http://dev.mysql.com/downloads/mysql/
 - STRUTS 2 version 2.3.24.1 GA - https://struts.apache.org/
 - Apache Tomcat version 8.0.28 - http://tomcat.apache.org/download-80.cgi
 
-Toate aceste tehnologii mentionate sunt gratuite, iar unele sunt open source.
+All of these technologies are free and some are also open source.
 
 # IDE:
-- Eclipse EE Mars (4.5) - https://eclipse.org/downloads/ 
+- Eclipse EE Mars (4.5) - https://eclipse.org/downloads/
 
-# Platforma hardware:
-- Amazon Web Services - https://aws.amazon.com/
+# Hardware Platform:
+- Amazon Web Services - EC2 tiny-instance (CPU 1 GHz - 1 core, RAM 1 GB, SSD 25 GB).
 
-# Mod de lucru:
-- o sa avem fiecare o instanta locala a interfetei, prin care ne conectam la baza de date de pe Amazon
+# Workflow:
+- Local interface instances, remote unique database instance.
