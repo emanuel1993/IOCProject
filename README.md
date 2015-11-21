@@ -51,7 +51,7 @@ we have to send a mail, or contact them via telephone, or even go to their house
 3. lostandfound.png - depiction of limited functionality in an unorganised manner.
 
 # Proposed technologies:
-- Java for backend, version 8 update 60 - https://java.com/en/download/
+- Java for backend, version 8 update 66 - https://java.com/en/download/
 - Hibernate, version 5.0.2 final - http://hibernate.org/orm/
 - MySQL Community Server version 5.6.27 - http://dev.mysql.com/downloads/mysql/
 - STRUTS 2 version 2.3.24.1 GA - https://struts.apache.org/
