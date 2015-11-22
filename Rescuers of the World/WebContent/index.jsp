@@ -10,37 +10,35 @@
 </head>
 <body style="text-align: center">
 	<h2><%=Constants.APPLICATION_NAME.toUpperCase()%></h2>
-	<form action="LoginServlet" method="post">
+	<form action="IndexServlet" method="post">
 		<div id="wrapperabsolute">
 			<div id="wrappertop"></div>
 			<div id="wrappermiddle">
 				<h2><%=Constants.SIGNIN%></h2>
-				<div id="username_input">
-					<div id="field_inputleft"></div>
-					<div id="field_inputmiddle">
-						<input type="text" name="<%=Constants.USERNAME%>" id="url"
-							value="<%=Constants.USERNAME%>" onclick="this.value = ''" /> <img
-							id="url_field" src="./images/user_interface/username.png" alt="" />
+				<div id="mission_name_input">
+					<div id="field_input">
+						<input type="text" name="mission_name" id="url"
+							value="mission_name" onclick="this.value = ''" /> 
 					</div>
-					<div id="field_inputright"></div>
 				</div>
-				<div id="password_input">
-					<div id="field_inputleft"></div>
-					<div id="field_inputmiddle">
-						<input type="password" name="<%=Constants.PASSWORD%>" id="url"
-							value="<%=Constants.PASSWORD%>" onclick="this.value = ''" /> <img
-							id="url_field" src="./images/user_interface/password.png" alt="" />
+				<div id="level_input">
+					<div id="field_input">
+						<input type="text" name="level" id="url"
+							value="level" onclick="this.value = ''" /> 
 					</div>
-					<div id="field_inputright"></div>
 				</div>
-				<div id="submit">
-					<input type="image" src="./images/user_interface/signin.png"
-						id="submit2" name="<%=Constants.SIGNIN.toLowerCase()%>"
-						value="<%=Constants.SIGNIN%>" />
+				<div id="participants_input">
+					<div id="field_input">
+						<input type="text" name="participants" id="url"
+							value="participants" onclick="this.value = ''" /> 
+					</div>
 				</div>
-				<c:if test="${not empty error && error eq true}">
-					<h3 style="color: red"><%=Constants.ERROR_USERNAME_PASSWORD%></h3>
-				</c:if>
+				<div id="description_input">
+					<div id="field_input">
+						<input type="text" name="description" id="url"
+							value="description" onclick="this.value = ''" /> 
+					</div>
+				</div>
 			</div>
 			<div id="wrapperbottom"></div>
 		</div>
