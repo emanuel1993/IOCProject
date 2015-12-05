@@ -9,5 +9,6 @@
 	<classpathentry exported="true" kind="lib" path="libs/hibernate-core-5.0.2.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/hibernate-entitymanager-5.0.2.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.37.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
