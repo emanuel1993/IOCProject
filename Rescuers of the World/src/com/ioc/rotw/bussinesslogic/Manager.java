@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ioc.rotw.entities.Mission;
 import com.ioc.rotw.helper.Constants;
 
 
@@ -33,6 +34,110 @@ public class Manager {
 		}
 	}
 
+	public void deleteMissionEntity(int MID, String MType) {
+		try {
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			StringBuilder query = new StringBuilder("DELETE FROM IocProject.mission WHERE idmission='"+Integer.toString(MID)+"' AND mission_type='"+MType+"'");
+			System.out.println(query.toString());
+			statement.executeUpdate(query.toString());
+			PrintMission();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Mission getMissionEntity(int MID, String MType) {
+		try {
+			Mission ret = new Mission();
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			StringBuilder query = new StringBuilder("SELECT * FROM IocProject.mission WHERE idmission='"+Integer.toString(MID)+"' AND mission_type='"+MType+"'");
+			ResultSet result = statement.executeQuery(query.toString());
+			
+			if (result != null && result.next()) {
+				ret.setIdmission(Integer.parseInt(result.getString(1)));
+				System.out.println(query.toString());
+				System.out.println(Integer.parseInt(result.getString(1)));
+				ret.setMissionName(result.getString(2));
+				System.out.println(result.getString(2));
+				ret.setPicName(result.getString(3));
+				System.out.println(result.getString(3));
+				ret.setLevel(Integer.parseInt(result.getString(4)));
+				System.out.println(Integer.parseInt(result.getString(4)));
+				ret.setParticipants(Integer.parseInt(result.getString(5)));
+				System.out.println(Integer.parseInt(result.getString(5)));
+				ret.setMaxParticipants(Integer.parseInt(result.getString(6)));
+				System.out.println(Integer.parseInt(result.getString(6)));
+				ret.setDescription(result.getString(7));
+				System.out.println(result.getString(7));
+				ret.setMissionType(result.getString(8));
+				System.out.println(result.getString(8));
+			}
+			return ret;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public List<Mission> getMissionsByType(String MType) {
+		try {
+			List<Mission> ret = new ArrayList<Mission>();
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			StringBuilder query = new StringBuilder("SELECT * FROM IocProject.mission WHERE mission_type='"+MType+"'");
+			ResultSet result = statement.executeQuery(query.toString());
+			int currentRow = 0;
+			System.out.println(result);
+			while (result.next()) {
+				ret.add(new Mission());
+				ret.get(currentRow).setIdmission(Integer.parseInt(result.getString(1)));
+				ret.get(currentRow).setMissionName(result.getString(2));
+				ret.get(currentRow).setPicName(result.getString(3));
+				ret.get(currentRow).setLevel(Integer.parseInt(result.getString(4)));
+				ret.get(currentRow).setParticipants(Integer.parseInt(result.getString(5)));
+				ret.get(currentRow).setMaxParticipants(Integer.parseInt(result.getString(6)));
+				ret.get(currentRow).setDescription(result.getString(7));
+				ret.get(currentRow).setMissionType(result.getString(8));
+				currentRow++;
+			}
+			for (Mission elem : ret) {
+				System.out.println(elem.getMissionName());
+				System.out.println(elem.getIdmission());
+				System.out.println(elem.getMissionType());
+				System.out.println(elem.getDescription());
+				System.out.println(elem.getLevel());
+				System.out.println(elem.getMaxParticipants());
+				System.out.println(elem.getPicName());
+				System.out.println(elem.getParticipants());
+			}
+			return ret;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public boolean addReplaceMission(int MID, Mission misiune) {
+		/*try {
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			if (MID < 0) {
+				//inseram misiunea in baza de date
+				//INSERT INTO IocProject.mission VALUES(300 , 'AAAA', 'bbbb', 12, 20, 60, 'gigi', 'PERSON');	
+				StringBuilder query = new StringBuilder("INSERT INTO IocProject.mission VALUES(null, "+misiune.+"','");
+				ResultSet result = statement.executeQuery(query.toString());
+				return true;
+			} else {
+				//facem replace in baza de date cu misiune
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		return false;
+	}
+	
 	public void PrintMission() {
 		try {
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);

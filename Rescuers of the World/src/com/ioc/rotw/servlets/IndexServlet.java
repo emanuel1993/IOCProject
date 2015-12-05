@@ -24,6 +24,9 @@ public class IndexServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		manager = new Manager();
+		manager.deleteMissionEntity(201, "PERSON");
+		manager.getMissionEntity(202, "OBJECT");
+		manager.getMissionsByType("PERSON");
 	}
 
 	@Override
