@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ioc.rotw.bussinesslogic.Manager;
+import com.ioc.rotw.entities.Mission;
 import com.ioc.rotw.helper.Constants;
 
 public class IndexServlet extends HttpServlet {
@@ -24,6 +25,13 @@ public class IndexServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		manager = new Manager();
+		manager.deleteMissionEntity(201, "PERSON");
+		Mission mis = manager.getMissionEntity(202, "OBJECT");
+		manager.getMissionsByType("PERSON");
+		mis.setLevel(9001);
+		System.out.println(manager.addReplaceMission(mis.getIdmission(), mis));
+		mis.setIdmission(-1);
+		System.out.println(manager.addReplaceMission(mis.getIdmission(), mis));		
 	}
 
 	@Override

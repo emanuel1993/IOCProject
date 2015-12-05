@@ -5,7 +5,8 @@
 	height: 50%;
 	top: 0px;
 	position: relative;
-	float: left
+	float: left;
+	cursor: pointer;
 }
 
 .indexDown {
@@ -13,7 +14,9 @@
 	height: 50%;
 	bottom: 0px;
 	position: relative;
-	float: left
+	float: left;
+	cursor: pointer;
+	
 }
 
 .container {
@@ -29,6 +32,8 @@
 	top: 17%;
 	font: 30px tahoma, sans-serif;
 	font-weight: bold;
+	opacity: 0.8;
+	cursor: pointer;
 }
 
 .indexDown p {
@@ -38,6 +43,8 @@
 	top: 30%;
 	font: 30px tahoma, sans-serif;
 	font-weight: bold;
+	opacity: 0.8;
+	cursor: pointer;
 }
 
 .table {
