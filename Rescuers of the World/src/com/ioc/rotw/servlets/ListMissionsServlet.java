@@ -34,9 +34,6 @@ public class ListMissionsServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		/*HttpSession session = req.getSession(true);
-		if (session == null)
-			return;*/
 		Enumeration<String> parameters = req.getParameterNames();
 		if (parameters.hasMoreElements()) {
 			String parameter = (String) parameters.nextElement();
