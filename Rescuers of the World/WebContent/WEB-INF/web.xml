@@ -14,4 +14,44 @@
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/IndexServlet</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>DeleteMissionServlet</display-name>
+    <servlet-name>DeleteMissionServlet</servlet-name>
+    <servlet-class>com.ioc.rotw.servlets.DeleteMissionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteMissionServlet</servlet-name>
+    <url-pattern>/DeleteMissionServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>GetMissionServlet</display-name>
+    <servlet-name>GetMissionServlet</servlet-name>
+    <servlet-class>com.ioc.rotw.servlets.GetMissionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetMissionServlet</servlet-name>
+    <url-pattern>/GetMissionServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ListMissionsServlet</display-name>
+    <servlet-name>ListMissionsServlet</servlet-name>
+    <servlet-class>com.ioc.rotw.servlets.ListMissionsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListMissionsServlet</servlet-name>
+    <url-pattern>/ListMissionsServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>UpdateInsertMissionServlet</display-name>
+    <servlet-name>UpdateInsertMissionServlet</servlet-name>
+    <servlet-class>com.ioc.rotw.servlets.UpdateInsertMissionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateInsertMissionServlet</servlet-name>
+    <url-pattern>/UpdateInsertMissionServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
