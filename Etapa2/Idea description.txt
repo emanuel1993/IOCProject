@@ -1,0 +1,5 @@
+Project idea description:
+
+An online system that can assist individuals in finding missing people, animals or objects 
+by providing specific tools in order to efficiently distribute the effort among all the 
+volunteers or stakeholders.
