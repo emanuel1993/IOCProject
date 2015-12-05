@@ -34,17 +34,20 @@ public class Manager {
 		}
 	}
 
-	public void deleteMissionEntity(int MID, String MType) {
+	public boolean deleteMissionEntity(int MID, String MType) {
 		try {
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			StringBuilder query = new StringBuilder("DELETE FROM IocProject.mission WHERE idmission='"+Integer.toString(MID)+"' AND mission_type='"+MType+"'");
 			System.out.println(query.toString());
-			statement.executeUpdate(query.toString());
+			if (statement.executeUpdate(query.toString()) > 0)
+				return true;
 			PrintMission();
+			return false;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return false;
 	}
 	
 	public Mission getMissionEntity(int MID, String MType) {
@@ -120,21 +123,26 @@ public class Manager {
 	}
 	
 	public boolean addReplaceMission(int MID, Mission misiune) {
-		/*try {
+		try {
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			if (MID < 0) {
 				//inseram misiunea in baza de date
 				//INSERT INTO IocProject.mission VALUES(300 , 'AAAA', 'bbbb', 12, 20, 60, 'gigi', 'PERSON');	
-				StringBuilder query = new StringBuilder("INSERT INTO IocProject.mission VALUES(null, "+misiune.+"','");
-				ResultSet result = statement.executeQuery(query.toString());
-				return true;
+				StringBuilder query = new StringBuilder("INSERT INTO IocProject.mission VALUES(null, '"+misiune.getMissionName()+"','"+misiune.getPicName()+"','"+misiune.getLevel()+"','"+misiune.getParticipants()+"','"+misiune.getMaxParticipants()+"','"+misiune.getDescription()+"','"+misiune.getMissionType()+"');");
+				if (statement.executeUpdate(query.toString()) > 0)
+					return true;
+				return false;
 			} else {
 				//facem replace in baza de date cu misiune
+				StringBuilder query = new StringBuilder("UPDATE IocProject.mission SET mission_name='"+misiune.getMissionName()+"', pic_name='"+misiune.getPicName()+"', level='"+misiune.getLevel()+"', participants='"+misiune.getParticipants()+"', max_participants='"+misiune.getMaxParticipants()+"', description='"+misiune.getDescription()+"', mission_type='"+misiune.getMissionType()+"' WHERE idmission='"+MID+"'");
+				if (statement.executeUpdate(query.toString()) > 0)
+					return true;
+				return false;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		return false;
 	}
 	
