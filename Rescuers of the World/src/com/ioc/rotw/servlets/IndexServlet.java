@@ -37,6 +37,7 @@ public class IndexServlet extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("asdaD");
 		RequestDispatcher dispatcher = null;
 		dispatcher = getServletContext().getRequestDispatcher("/" + Constants.LOGIN_PAGE);
 		if (dispatcher != null) {

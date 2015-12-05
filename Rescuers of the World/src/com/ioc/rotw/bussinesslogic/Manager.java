@@ -2,7 +2,9 @@ package com.ioc.rotw.bussinesslogic;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,17 +15,39 @@ public class Manager {
 	private Connection connection;
 	public Manager() {
 		try {
+				System.out.println("print");
 			if (connection == null || connection.isClosed()) {
 				connection = DriverManager.getConnection(
 						Constants.DATABASE_CONNECTION + (Constants.DATABASE_NAME != null ? Constants.DATABASE_NAME  : ""),
 						Constants.DATABASE_USERNAME, Constants.DATABASE_PASSWORD);
 			}
+			PrintMission();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	public void PrintMission() {
+		try {
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			List<List<String>> databaseContent = null;
+			StringBuilder query = new StringBuilder("SELECT * FROM IocProject.mission");
+			databaseContent = new ArrayList<>();
+			ResultSet result = statement.executeQuery(query.toString());
+			int currentRow = 0;
+			while (result.next()) {
+				databaseContent.add(new ArrayList<String>());
+				for (int currentColumn = 0; currentColumn < 8; currentColumn++) {
+					System.out.println(result.getString(currentColumn + 1));
+				}
+				currentRow++;
+			}
+		} catch (SQLException sqlException) {
+			System.out.println("An exception has occurred: " + sqlException.getMessage());
+			sqlException.printStackTrace();
+		}
+	}
 /*	public int getType(String username, String password) {
 		DatabaseOperations databaseOperations = null;
 		try {

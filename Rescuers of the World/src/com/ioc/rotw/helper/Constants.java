@@ -3,12 +3,12 @@ package com.ioc.rotw.helper;
 
 public interface Constants {
 
-	public final static String APPLICATION_NAME = "BookStore";
+	public final static String APPLICATION_NAME = "RescuersOfTheWorld";
 
-	public final static String DATABASE_CONNECTION = "jdbc:mysql://localhost:3306/bookstore";
-	public final static String DATABASE_USERNAME = "root";
-	public final static String DATABASE_PASSWORD = "StudentAipi2015$";
-	public final static String DATABASE_NAME = "bookstore";
+	public final static String DATABASE_CONNECTION = "jdbc:mysql://52.28.167.168:3306/";
+	public final static String DATABASE_USERNAME = "dbAdmin";
+	public final static String DATABASE_PASSWORD = "dbAdminIocProject";
+	public final static String DATABASE_NAME = "IocProject";
 
 	public final static boolean DEBUG = false;
 
