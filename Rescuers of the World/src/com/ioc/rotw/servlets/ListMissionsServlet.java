@@ -44,7 +44,7 @@ public class ListMissionsServlet extends HttpServlet {
 				type = req.getParameter(parameter);
 		}
 		resp.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + "missionspage.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MissionsPage.jsp");
 		List<Mission> missions = manager.getMissionsByType(type);
 		if (dispatcher != null) {
 			req.setAttribute("missions", missions);
