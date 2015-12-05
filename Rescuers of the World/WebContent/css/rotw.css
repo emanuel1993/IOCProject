@@ -50,7 +50,6 @@
 	font-weight: bold;
 	text-align: center;
 	width: 100%;
-	
 }
 
 .content {
@@ -98,4 +97,63 @@
 	border-right: solid;
 	border-bottom: solid;
 	border-width: thin;
+}
+
+.description-report {
+	display: table-cell;
+	width: 10%
+}
+
+.info-center-report {
+	display: table-cell;
+	width: 50%;
+}
+
+.participants-report {
+	display: table-cell;
+}
+
+.title-row-report {
+	display: table-row;
+}
+
+.title-report {
+	display: table-cell;
+}
+
+.title-insert-report {
+	display: table-cell;
+}
+
+.priority-report {
+	display: table-cell;
+}
+
+.priority-insert-report {
+	display: table-cell;
+}
+
+.participants-report {
+	display: table-cell;
+}
+
+.table-report {
+	display: table;
+	width: 100%;
+}
+
+.participants-table-report {
+	display: table;
+	float: left;
+	width: 30%;
+}
+
+.table-row-report {
+	display: table-row;
+}
+
+.table-column-report {
+	display: table;
+	float: left;
+	width: 70%;
 }
