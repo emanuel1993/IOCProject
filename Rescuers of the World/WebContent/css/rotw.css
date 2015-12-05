@@ -4,8 +4,8 @@
 	width: 33%;
 	height: 50%;
 	top: 0px;
-    position: relative;
-    float: left
+	position: relative;
+	float: left
 }
 
 .indexDown {
@@ -13,7 +13,7 @@
 	height: 50%;
 	bottom: 0px;
 	position: relative;
-    float: left
+	float: left
 }
 
 .container {
@@ -40,3 +40,62 @@
 	font-weight: bold;
 }
 
+.table {
+	display: table;
+	width: 100%;
+}
+
+.heading {
+	display: table-row;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	
+}
+
+.content {
+	display: table-row;
+	width: 100%;
+}
+
+.distress {
+	display: table-cell;
+	width: 8vw;
+}
+
+.picture {
+	display: table-cell;
+	width: 10vw;
+}
+
+.details {
+	display: table-cell;
+	width: 72vw;
+}
+
+.participants {
+	display: table-cell;
+	width: 10vw;
+}
+
+.cell-with-border {
+	border: solid;
+	border-width: thin;
+}
+
+.row-border {
+	border-bottom: solid;
+	border-width: thin;
+}
+
+.row-border-distress {
+	border-left: solid;
+	border-bottom: solid;
+	border-width: thin;
+}
+
+.row-border-participants {
+	border-right: solid;
+	border-bottom: solid;
+	border-width: thin;
+}
