@@ -40,7 +40,7 @@ public class UpdateInsertMissionServlet extends HttpServlet {
 			return;*/
 		Enumeration<String> parameters = req.getParameterNames();
 		mission = new Mission();
-		if (parameters.hasMoreElements()) {
+		while (parameters.hasMoreElements()) {
 			String parameter = (String) parameters.nextElement();
 			if (parameter.equals("mission_id"))
 				id = Integer.parseInt(req.getParameter(parameter));
