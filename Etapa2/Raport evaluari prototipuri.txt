@@ -1,0 +1,48 @@
+Echipa ScoreKeepers
+Imbunatatiri propuse:
+Interfata I este de preferat fata de cea de-a doua, oferind informatia mult mai organizat.
+Overlay grid de cautare cu Google Maps
+Structurarea pe categorii a obiectelor de cautat.  "Gasit obiect/Gasit persoana/Gasit animal".
+
+Elemente de pastrat:
+Pozitia tuturor membrilor echipei pe grid/harta
+Sistem rating
+
+
+Echipa IT#
+Ideea aplicatiei este una buna, dar ca oricare alta aplicatie colectiva, se bazeaza pe serioziatea 
+utilizatorilor (care uneori este discutabila) - creearea de cereri false si utilizarea in scopuri 
+ilicite a aplicatiei.
+Utilizarea overlay-urilor in combinatie cu Google maps ofera o solutie simpla si ieftina pentru 
+o problema altfel destul de greu de rezolvat si anume coordonarea eficienta a activitatilor de 
+cautare. Marcarea zonelor in care se desfasoara deja operatii de cautare, cele care au fost deja 
+parcurse si cele inca ne parcurse deasemenea ajuta la aceasta coordonare.
+De avut in vedere sistemul de recompense sa nu fie utilizat incorect, prin creearea unui sistem 
+de verificare sau rating, insa poate fi greu de implementat in mod corect si fara a crea avantaje 
+unor utilizatori fata de altii.
+
+
+
+Echipa M.A.R.
+Interfata 1 pare mult mai simplista si usor de utilizat fata de interata 2 care pare mai greu de urmat flow-ul aplcatiei, 
+userii cred ca ar prefera ceva simplu atunci cand pierd un obiect ceva usor de utilizat si rapid, de aceea noi preferam 
+interfata 1.
+De obicei ai folosi aceasta aplicatie pe telefon deoarece nu mereu ai laptopul la tine cand pierzi un lucru, de aceea 
+recomandam sa folositi interfata 1. Cred ca ar fi deasmenea util sa vezi ce face fiecare om care participa la cautare, 
+adica sa iti apare pe unde a cautat el, tie ca search director.
+La interfata 1 Give assistance si offer help nu sunt practic acelasi lucru?
+
+
+
+Echipa Skyfall
+Interfata 1 are un plus fata de interfata 2 datorita posibilitatii utilizarii aplicatiei pe mobil si 
+tableta -> mult mai eficient 
+Interfata 2 este cam greu de utilizat, prea aglomerata
+Ar fi util de adaugat posibilitatea de a verifica activitatea unui participant
+
+
+
+Concluzie echipe:
+Echipele prefera prima interfata, si considera ca ar merge mai bine pe dispozitivele mobile (mai ales tableta si
+telefon mobil). De asemenea, ideea de a implementa un grid peste google map pentru a imparti echipa de cautare pe
+anumite zone este vazuta pozitiv de toate echipele.

@@ -7,7 +7,7 @@ public interface Constants {
 
 	public final static String DATABASE_CONNECTION = "jdbc:mysql://52.28.167.168:3306/";
 	public final static String DATABASE_USERNAME = "dbAdmin";
-	public final static String DATABASE_PASSWORD = "dbAdminIocProject";
+	public final static String DATABASE_PASSWORD = "dbadminiocproject";
 	public final static String DATABASE_NAME = "IocProject";
 
 	public final static boolean DEBUG = false;

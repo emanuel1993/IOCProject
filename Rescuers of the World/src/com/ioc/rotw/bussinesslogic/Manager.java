@@ -15,14 +15,19 @@ public class Manager {
 	private Connection connection;
 	public Manager() {
 		try {
-				System.out.println("print");
+			System.out.println("blabla");
+			Class.forName("com.mysql.jdbc.Driver"); 
 			if (connection == null || connection.isClosed()) {
 				connection = DriverManager.getConnection(
 						Constants.DATABASE_CONNECTION + (Constants.DATABASE_NAME != null ? Constants.DATABASE_NAME  : ""),
 						Constants.DATABASE_USERNAME, Constants.DATABASE_PASSWORD);
 			}
+			System.out.println("print2");
 			PrintMission();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -36,6 +41,7 @@ public class Manager {
 			databaseContent = new ArrayList<>();
 			ResultSet result = statement.executeQuery(query.toString());
 			int currentRow = 0;
+			System.out.println(result);
 			while (result.next()) {
 				databaseContent.add(new ArrayList<String>());
 				for (int currentColumn = 0; currentColumn < 8; currentColumn++) {
