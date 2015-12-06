@@ -106,6 +106,19 @@
 	border-width: thin;
 }
 
+.cell {
+	display: table-cell;
+}
+
+.row {
+	display: table-row;
+}
+
+.report-from-header {
+	text-align: center;
+	font: 30px tahoma, sans-serif;
+	font-weight: bold;
+}
 .description-report {
 	display: table-cell;
 	width: 10%
@@ -126,22 +139,36 @@
 
 .title-report {
 	display: table-cell;
+	width: 10vw;
 }
 
 .title-insert-report {
 	display: table-cell;
+	width: 25vw;
 }
 
 .priority-report {
 	display: table-cell;
+	width: 10vw;
+	text-align: center;
 }
 
 .priority-insert-report {
 	display: table-cell;
+	width: 10vw;
 }
 
 .participants-report {
 	display: table-cell;
+	text-align: center;
+	width: 45vw;
+}
+
+.participants-list-report {
+	display: table-cell;
+	border: solid;
+	border-width: thin;
+	text-align: center;
 }
 
 .table-report {
@@ -157,10 +184,48 @@
 
 .table-row-report {
 	display: table-row;
+	width: 100%;
 }
 
 .table-column-report {
 	display: table;
 	float: left;
 	width: 70%;
+}
+
+.description-row-report {
+	display: table-row;
+}
+
+.description-report {
+	display: table-cell;
+	width: 9vw;
+}
+
+.description-insert-report {
+	display: table-cell;
+}
+
+.pictures-row-report {
+	display: table-row;
+}
+
+.pictures-report {
+	display: table-cell;
+}
+
+.pictures-insert-report {
+	display: table-cell;
+}
+
+.location-row-report {
+	display: table-row;
+}
+
+.location-report {
+	display: table-cell;
+}
+
+.location-insert-report {
+	display: table-cell;
 }
