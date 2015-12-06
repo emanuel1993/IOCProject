@@ -63,6 +63,7 @@
 	display: table-row;
 	width: 100%;
 	cursor: pointer;
+	text-align: center;
 }
 
 .content:hover {
