@@ -62,8 +62,9 @@ public class UpdateInsertMissionServlet extends HttpServlet {
 		boolean succeed = manager.addReplaceMission(mission);
 		
 		resp.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MissionsPage.jsp");
+		
 		List<Mission> missions = manager.getMissionsByType(mission.getMissionType());
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MissionsPage.jsp");
 		if (dispatcher != null) {
 			req.setAttribute("missions", missions);
 			dispatcher.forward(req, resp);

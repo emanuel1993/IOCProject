@@ -2,6 +2,7 @@ package com.ioc.rotw.servlets;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -45,11 +46,13 @@ public class DeleteMissionServlet extends HttpServlet {
 			if (parameter.equals("mission_type"))
 				type = req.getParameter(parameter);
 		}
-		resp.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + "samepage.jsp");
+
 		Boolean deleted = manager.deleteMissionEntity(id, type);
+		List<Mission> missions = manager.getMissionsByType(type);
+		resp.setContentType("text/html");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MissionsPage.jsp");
 		if (dispatcher != null) {
-			req.setAttribute("deleted", deleted);
+			req.setAttribute("missions", missions);
 			dispatcher.forward(req, resp);
 		}
 	}

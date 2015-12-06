@@ -24,7 +24,7 @@
 
 		</div>
 		<c:forEach var="mission" items="${missions}">
-			<div class="content">
+			<div class="content" onclick="location.href='GetMissionServlet?mission_type=<c:out value="${mission.missionType}"></c:out>&mission_id=<c:out value="${mission.idmission}"></c:out>'">
 				<div class="distress row-border-distress">
 					<p>
 						<c:out value="${mission.level}"></c:out>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="details row-border">
 					<p>
-						<c:out value="${mission.description}"></c:out>
+						<c:out value="${mission.missionName}"></c:out>
 					</p>
 				</div>
 				<div class="participants row-border-participants">

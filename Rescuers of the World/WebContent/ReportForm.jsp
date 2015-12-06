@@ -4,7 +4,14 @@
 <head>
 <link href="css/rotw.css" rel="stylesheet"></link>
 <meta charset="UTF-8">
-<title>New Mission</title>
+<c:choose>
+	<c:when test="${empty mission_id}">
+		<title>New Mission</title>
+	</c:when>
+	<c:otherwise>
+		<title>Update Mission</title>
+	</c:otherwise>
+</c:choose>
 </head>
 <body>
 	<div>
@@ -13,20 +20,24 @@
 		</div>
 
 		<form action="UpdateInsertMissionServlet" method="POST">
-			<input type="hidden" name="mission_id" value="<c:out value="${mission_id}"></c:out>">
-			<input type="hidden" name="mission_type" value="<c:out value="${mission_type}"></c:out>">
+			<input type="hidden" name="mission_id"
+				value="<c:out value="${mission_id}"></c:out>"> <input
+				type="hidden" name="mission_type"
+				value="<c:out value="${mission_type}"></c:out>">
 			<div class="table-row-report">
 				<div class="title-report">
 					<p>Title:</p>
 				</div>
 				<div class="title-insert-report">
-					<input type="text" name="mission_name" size="50">
+					<input type="text" name="mission_name" size="50"
+						value="<c:out value="${mission_name}"></c:out>">
 				</div>
 				<div class="priority-report">
 					<p>Priority:</p>
 				</div>
 				<div class="priority-insert-report">
-					<input type="text" name="level" size="5">
+					<input type="text" name="level" size="5"
+						value="<c:out value="${level}"></c:out>">
 				</div>
 				<div class="participants-report">
 					<p>Participants:</p>
@@ -41,8 +52,7 @@
 								<p>Description:</p>
 							</div>
 							<div class="description-insert-report">
-								<textarea rows="5" cols="74" name="description">
-							</textarea>
+								<textarea rows="5" cols="74" name="description"><c:out value="${description}"></c:out></textarea>
 							</div>
 						</div>
 						<div class="pictures-row-report">
@@ -58,8 +68,7 @@
 							<div class="location-insert-report">Insert map here</div>
 						</div>
 						<div class="location-row-report">
-							<div class="location-buttons">
-							</div>
+							<div class="location-buttons"></div>
 							<div class="location-insert-report">
 								<c:choose>
 									<c:when test="${empty mission_id}">
@@ -67,16 +76,15 @@
 									</c:when>
 									<c:otherwise>
 										<input type="submit" value="Update">
-										<input type="button" value="Delete" onclick="location.href='DeleteMissionServlet?mission_id=<c:out value="${mission_id}"></c:out>'">
+										<input type="button" value="Delete"
+											onclick="location.href='DeleteMissionServlet?mission_id=<c:out value="${mission_id}"></c:out>&mission_type=<c:out value="${mission_type}"></c:out>'">
 									</c:otherwise>
 								</c:choose>
 							</div>
 						</div>
 					</div>
 					<div class="participants-table-report">
-						<div class="participants-list-report">
-							<p>tralalala:</p>
-						</div>
+						<div class="participants-list-report"></div>
 
 					</div>
 				</div>

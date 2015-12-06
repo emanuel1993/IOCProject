@@ -45,10 +45,15 @@ public class GetMissionServlet extends HttpServlet {
 				type = req.getParameter(parameter);
 		}
 		resp.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + "missionDescription.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ReportForm.jsp");
 		Mission mission = manager.getMissionEntity(id, type);
 		if (dispatcher != null) {
-			req.setAttribute("mission", mission);
+			req.setAttribute("mission_type", mission.getMissionType());
+			req.setAttribute("mission_id", mission.getIdmission());
+			req.setAttribute("level", mission.getLevel());
+			req.setAttribute("mission_name", mission.getMissionName());
+			req.setAttribute("description", mission.getDescription());
+			
 			dispatcher.forward(req, resp);
 		}
 	}
