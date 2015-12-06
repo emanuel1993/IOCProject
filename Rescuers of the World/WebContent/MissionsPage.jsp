@@ -4,7 +4,7 @@
 <head>
 <link href="css/rotw.css" rel="stylesheet"></link>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Missions List</title>
 </head>
 <body>
 	<div class="table">

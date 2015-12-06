@@ -18,9 +18,7 @@ public class UpdateInsertMissionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -803588086937224992L;
 	
-	int id;
 	Manager manager;
-	Mission mission;
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -39,11 +37,13 @@ public class UpdateInsertMissionServlet extends HttpServlet {
 		if (session == null)
 			return;*/
 		Enumeration<String> parameters = req.getParameterNames();
-		mission = new Mission();
+		Mission mission = new Mission();
 		while (parameters.hasMoreElements()) {
 			String parameter = (String) parameters.nextElement();
+			System.out.println("Let's write something down : " + parameter +" : " + req.getParameter(parameter));
 			if (parameter.equals("mission_id"))
-				id = Integer.parseInt(req.getParameter(parameter));
+				if(req.getParameter(parameter) != null && !(req.getParameter(parameter).equals("")))
+					mission.setIdmission(Integer.parseInt(req.getParameter(parameter)));
 			if (parameter.equals("mission_type"))
 				mission.setMissionType(req.getParameter(parameter));
 			if (parameter.equals("level"))
@@ -59,17 +59,28 @@ public class UpdateInsertMissionServlet extends HttpServlet {
 			if (parameter.equals("pic_name"))
 				mission.setPicName(req.getParameter(parameter));
 		}
+		boolean succeed = manager.addReplaceMission(mission);
+		
 		resp.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + "samepage.jsp");
-		boolean succeed = manager.addReplaceMission(id, mission);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MissionsPage.jsp");
+		List<Mission> missions = manager.getMissionsByType(mission.getMissionType());
 		if (dispatcher != null) {
-			req.setAttribute("succeed", succeed);
+			req.setAttribute("missions", missions);
 			dispatcher.forward(req, resp);
 		}
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doPost(req, resp);
+		String mission_type = req.getParameter("mission_type");
+		String mission_id = req.getParameter("mission_id");
+		
+		resp.setContentType("text/html");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ReportForm.jsp");
+		if (dispatcher != null) {
+			req.setAttribute("mission_type", mission_type);
+			req.setAttribute("mission_id", mission_id);
+			dispatcher.forward(req, resp);
+		}
 	}
 }

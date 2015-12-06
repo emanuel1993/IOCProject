@@ -18,7 +18,6 @@ public class ListMissionsServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 5037183675623715216L;
 	
-	String type;
 	Manager manager;
 	
 	@Override
@@ -34,15 +33,16 @@ public class ListMissionsServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String mission_type = "";
 		Enumeration<String> parameters = req.getParameterNames();
 		if (parameters.hasMoreElements()) {
 			String parameter = (String) parameters.nextElement();
 			if (parameter.equals("mission_type"))
-				type = req.getParameter(parameter);
+				mission_type = req.getParameter(parameter);
 		}
 		resp.setContentType("text/html");
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MissionsPage.jsp");
-		List<Mission> missions = manager.getMissionsByType(type);
+		List<Mission> missions = manager.getMissionsByType(mission_type);
 		if (dispatcher != null) {
 			req.setAttribute("missions", missions);
 			dispatcher.forward(req, resp);

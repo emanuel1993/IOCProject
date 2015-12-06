@@ -1,7 +1,6 @@
 package com.ioc.rotw.servlets;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -9,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.ioc.rotw.bussinesslogic.Manager;
 import com.ioc.rotw.entities.Mission;
@@ -29,9 +27,9 @@ public class IndexServlet extends HttpServlet {
 		Mission mis = manager.getMissionEntity(202, "OBJECT");
 		manager.getMissionsByType("PERSON");
 		mis.setLevel(9001);
-		System.out.println(manager.addReplaceMission(mis.getIdmission(), mis));
+		System.out.println(manager.addReplaceMission(mis));
 		mis.setIdmission(-1);
-		System.out.println(manager.addReplaceMission(mis.getIdmission(), mis));		
+		System.out.println(manager.addReplaceMission(mis));		
 	}
 
 	@Override

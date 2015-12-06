@@ -122,10 +122,12 @@ public class Manager {
 		return null;
 	}
 	
-	public boolean addReplaceMission(int MID, Mission misiune) {
+	public boolean addReplaceMission(Mission misiune) {
 		try {
+			if (misiune == null || misiune.getIdmission() < 0 || misiune.getMissionType() == null)
+				throw new Exception("Not fit for the database");
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			if (MID < 0) {
+			if (misiune.getIdmission() == 0) {
 				//inseram misiunea in baza de date
 				//INSERT INTO IocProject.mission VALUES(300 , 'AAAA', 'bbbb', 12, 20, 60, 'gigi', 'PERSON');	
 				StringBuilder query = new StringBuilder("INSERT INTO IocProject.mission VALUES(null, '"+misiune.getMissionName()+"','"+misiune.getPicName()+"','"+misiune.getLevel()+"','"+misiune.getParticipants()+"','"+misiune.getMaxParticipants()+"','"+misiune.getDescription()+"','"+misiune.getMissionType()+"');");
@@ -134,12 +136,12 @@ public class Manager {
 				return false;
 			} else {
 				//facem replace in baza de date cu misiune
-				StringBuilder query = new StringBuilder("UPDATE IocProject.mission SET mission_name='"+misiune.getMissionName()+"', pic_name='"+misiune.getPicName()+"', level='"+misiune.getLevel()+"', participants='"+misiune.getParticipants()+"', max_participants='"+misiune.getMaxParticipants()+"', description='"+misiune.getDescription()+"', mission_type='"+misiune.getMissionType()+"' WHERE idmission='"+MID+"'");
+				StringBuilder query = new StringBuilder("UPDATE IocProject.mission SET mission_name='"+misiune.getMissionName()+"', pic_name='"+misiune.getPicName()+"', level='"+misiune.getLevel()+"', participants='"+misiune.getParticipants()+"', max_participants='"+misiune.getMaxParticipants()+"', description='"+misiune.getDescription()+"', mission_type='"+misiune.getMissionType()+"' WHERE idmission='"+misiune.getIdmission()+"'");
 				if (statement.executeUpdate(query.toString()) > 0)
 					return true;
 				return false;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

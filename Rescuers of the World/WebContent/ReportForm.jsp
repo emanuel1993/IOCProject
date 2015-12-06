@@ -1,9 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link href="css/rotw.css" rel="stylesheet"></link>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>New Mission</title>
 </head>
 <body>
 	<div>
@@ -12,19 +13,20 @@
 		</div>
 
 		<form action="UpdateInsertMissionServlet" method="POST">
-			<input type="text" name="id" disabled style="display: none;">
+			<input type="hidden" name="mission_id" value="<c:out value="${mission_id}"></c:out>">
+			<input type="hidden" name="mission_type" value="<c:out value="${mission_type}"></c:out>">
 			<div class="table-row-report">
 				<div class="title-report">
 					<p>Title:</p>
 				</div>
 				<div class="title-insert-report">
-					<input type="text" name="title" size="50">
+					<input type="text" name="mission_name" size="50">
 				</div>
 				<div class="priority-report">
 					<p>Priority:</p>
 				</div>
 				<div class="priority-insert-report">
-					<input type="text" name="priority" size="5">
+					<input type="text" name="level" size="5">
 				</div>
 				<div class="participants-report">
 					<p>Participants:</p>
@@ -39,7 +41,7 @@
 								<p>Description:</p>
 							</div>
 							<div class="description-insert-report">
-								<textarea rows="5" cols="74">
+								<textarea rows="5" cols="74" name="description">
 							</textarea>
 							</div>
 						</div>
@@ -59,7 +61,15 @@
 							<div class="location-buttons">
 							</div>
 							<div class="location-insert-report">
-								<input type="submit" value="Save">
+								<c:choose>
+									<c:when test="${empty mission_id}">
+										<input type="submit" value="Save">
+									</c:when>
+									<c:otherwise>
+										<input type="submit" value="Update">
+										<input type="button" value="Delete" onclick="location.href='DeleteMissionServlet?mission_id=<c:out value="${mission_id}"></c:out>'">
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 					</div>
@@ -74,7 +84,5 @@
 			</div>
 		</form>
 	</div>
-
-
 </body>
 </html>
