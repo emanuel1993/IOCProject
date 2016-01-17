@@ -52,7 +52,8 @@
 								<p>Description:</p>
 							</div>
 							<div class="description-insert-report">
-								<textarea rows="5" cols="74" name="description"><c:out value="${description}"></c:out></textarea>
+								<textarea rows="5" cols="74" name="description"><c:out
+										value="${description}"></c:out></textarea>
 							</div>
 						</div>
 						<div class="pictures-row-report">
@@ -65,7 +66,30 @@
 							<div class="location-report">
 								<p>Location:</p>
 							</div>
-							<div class="location-insert-report">Insert map here</div>
+							
+							<div class="location-insert-report">
+								<iframe width="600" height="450" frameborder="0"
+									style="border: 0"
+									src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDVQXq3p7JAJgKYkEcVqoabOnz7NdnddHI&center=44.433903, 26.095324&zoom=14">
+								</iframe>
+								<div class="grid">
+									<div class="grid-row">
+										<div class="grid-cell" id="11"></div>
+										<div class="grid-cell" id="12"></div>
+										<div class="grid-cell" id="13"></div>
+									</div>
+									<div class="grid-row">
+										<div class="grid-cell" id="21"></div>
+										<div class="grid-cell" id="22"></div>
+										<div class="grid-cell" id="23"></div>
+									</div>
+									<div class="grid-row">
+										<div class="grid-cell" id="31"></div>
+										<div class="grid-cell" id="32"></div>
+										<div class="grid-cell" id="33"></div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="location-row-report">
 							<div class="location-buttons"></div>
