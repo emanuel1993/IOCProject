@@ -20,8 +20,6 @@ public class Mission implements Serializable {
 
 	private String description;
 
-	private int level;
-
 	@Column(name="max_participants")
 	private int maxParticipants;
 
@@ -36,9 +34,19 @@ public class Mission implements Serializable {
 	@Column(name="pic_name")
 	private String picName;
 
+	//bi-directional many-to-one association to DistressLevel
+	@ManyToOne
+	@JoinColumn(name="distress_level_id")
+	private DistressLevel distressLevel;
+
 	//bi-directional many-to-one association to User
 	@OneToMany(mappedBy="mission")
 	private List<User> users;
+
+	//bi-directional one-to-one association to MapData
+	@OneToOne
+	@JoinColumn(name="map_data_id")
+	private MapData mapData;
 
 	public Mission() {
 	}
@@ -57,14 +65,6 @@ public class Mission implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public int getLevel() {
-		return this.level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
 	}
 
 	public int getMaxParticipants() {
@@ -107,6 +107,22 @@ public class Mission implements Serializable {
 		this.picName = picName;
 	}
 
+	public DistressLevel getDistressLevel() {
+		return this.distressLevel;
+	}
+
+	public void setDistressLevel(DistressLevel distressLevel) {
+		this.distressLevel = distressLevel;
+	}
+
+	public MapData getMapData() {
+		return this.mapData;
+	}
+
+	public void setMapData(MapData mapData1) {
+		this.mapData = mapData1;
+	}
+
 	public List<User> getUsers() {
 		return this.users;
 	}
@@ -128,5 +144,4 @@ public class Mission implements Serializable {
 
 		return user;
 	}
-
 }

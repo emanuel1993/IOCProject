@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ioc.rotw.entities.DistressLevel;
+import com.ioc.rotw.entities.MapData;
 import com.ioc.rotw.entities.Mission;
 import com.ioc.rotw.helper.Constants;
 
@@ -16,7 +18,6 @@ public class Manager {
 	private Connection connection;
 	public Manager() {
 		try {
-			System.out.println("blabla");
 			Class.forName("com.mysql.jdbc.Driver"); 
 			if (connection == null || connection.isClosed()) {
 				connection = DriverManager.getConnection(
@@ -42,6 +43,7 @@ public class Manager {
 			if (statement.executeUpdate(query.toString()) > 0)
 				return true;
 			PrintMission();
+			
 			return false;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -58,23 +60,33 @@ public class Manager {
 			ResultSet result = statement.executeQuery(query.toString());
 			
 			if (result != null && result.next()) {
+//				ret.setIdmission(Integer.parseInt(result.getString(1)));
+//				System.out.println(query.toString());
+//				System.out.println(Integer.parseInt(result.getString(1)));
+//				ret.setMissionName(result.getString(2));
+//				System.out.println(result.getString(2));
+//				ret.setPicName(result.getString(3));
+//				System.out.println(result.getString(3));
+//				ret.setDistressLevel(getDistressLevel(Integer.parseInt(result.getString(4))));
+//				System.out.println(Integer.parseInt(result.getString(4)));
+//				ret.setParticipants(Integer.parseInt(result.getString(5)));
+//				System.out.println(Integer.parseInt(result.getString(5)));
+//				ret.setMaxParticipants(Integer.parseInt(result.getString(6)));
+//				System.out.println(Integer.parseInt(result.getString(6)));
+//				ret.setDescription(result.getString(7));
+//				System.out.println(result.getString(7));
+//				ret.setMissionType(result.getString(8));
+//				System.out.println(result.getString(8));
+				
 				ret.setIdmission(Integer.parseInt(result.getString(1)));
-				System.out.println(query.toString());
-				System.out.println(Integer.parseInt(result.getString(1)));
 				ret.setMissionName(result.getString(2));
-				System.out.println(result.getString(2));
 				ret.setPicName(result.getString(3));
-				System.out.println(result.getString(3));
-				ret.setLevel(Integer.parseInt(result.getString(4)));
-				System.out.println(Integer.parseInt(result.getString(4)));
-				ret.setParticipants(Integer.parseInt(result.getString(5)));
-				System.out.println(Integer.parseInt(result.getString(5)));
-				ret.setMaxParticipants(Integer.parseInt(result.getString(6)));
-				System.out.println(Integer.parseInt(result.getString(6)));
-				ret.setDescription(result.getString(7));
-				System.out.println(result.getString(7));
-				ret.setMissionType(result.getString(8));
-				System.out.println(result.getString(8));
+				ret.setParticipants(Integer.parseInt(result.getString(4)));
+				ret.setMaxParticipants(Integer.parseInt(result.getString(5)));
+				ret.setDescription(result.getString(6));
+				ret.setMissionType(result.getString(7));
+				ret.setDistressLevel(getDistressLevel(Integer.parseInt(result.getString(8))));
+				ret.setMapData(getGridData(ret.getIdmission()));
 			}
 			return ret;
 		} catch (SQLException e) {
@@ -97,26 +109,15 @@ public class Manager {
 				ret.get(currentRow).setIdmission(Integer.parseInt(result.getString(1)));
 				ret.get(currentRow).setMissionName(result.getString(2));
 				ret.get(currentRow).setPicName(result.getString(3));
-				ret.get(currentRow).setLevel(Integer.parseInt(result.getString(4)));
-				ret.get(currentRow).setParticipants(Integer.parseInt(result.getString(5)));
-				ret.get(currentRow).setMaxParticipants(Integer.parseInt(result.getString(6)));
-				ret.get(currentRow).setDescription(result.getString(7));
-				ret.get(currentRow).setMissionType(result.getString(8));
+				ret.get(currentRow).setParticipants(Integer.parseInt(result.getString(4)));
+				ret.get(currentRow).setMaxParticipants(Integer.parseInt(result.getString(5)));
+				ret.get(currentRow).setDescription(result.getString(6));
+				ret.get(currentRow).setMissionType(result.getString(7));
+				ret.get(currentRow).setDistressLevel(getDistressLevel(Integer.parseInt(result.getString(8))));
 				currentRow++;
-			}
-			for (Mission elem : ret) {
-				System.out.println(elem.getMissionName());
-				System.out.println(elem.getIdmission());
-				System.out.println(elem.getMissionType());
-				System.out.println(elem.getDescription());
-				System.out.println(elem.getLevel());
-				System.out.println(elem.getMaxParticipants());
-				System.out.println(elem.getPicName());
-				System.out.println(elem.getParticipants());
 			}
 			return ret;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -128,15 +129,14 @@ public class Manager {
 				throw new Exception("Not fit for the database");
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			if (misiune.getIdmission() == 0) {
-				//inseram misiunea in baza de date
-				//INSERT INTO IocProject.mission VALUES(300 , 'AAAA', 'bbbb', 12, 20, 60, 'gigi', 'PERSON');	
-				StringBuilder query = new StringBuilder("INSERT INTO IocProject.mission VALUES(null, '"+misiune.getMissionName()+"','"+misiune.getPicName()+"','"+misiune.getLevel()+"','"+misiune.getParticipants()+"','"+misiune.getMaxParticipants()+"','"+misiune.getDescription()+"','"+misiune.getMissionType()+"');");
+				//inseram misiunea in baza de date	
+				StringBuilder query = new StringBuilder("INSERT INTO IocProject.mission VALUES(null, '"+misiune.getMissionName()+"','"+misiune.getPicName()+"','"+misiune.getDistressLevel().getId()+"','"+misiune.getParticipants()+"','"+misiune.getMaxParticipants()+"','"+misiune.getDescription()+"','"+misiune.getMissionType()+"');");
 				if (statement.executeUpdate(query.toString()) > 0)
 					return true;
 				return false;
 			} else {
 				//facem replace in baza de date cu misiune
-				StringBuilder query = new StringBuilder("UPDATE IocProject.mission SET mission_name='"+misiune.getMissionName()+"', pic_name='"+misiune.getPicName()+"', level='"+misiune.getLevel()+"', participants='"+misiune.getParticipants()+"', max_participants='"+misiune.getMaxParticipants()+"', description='"+misiune.getDescription()+"', mission_type='"+misiune.getMissionType()+"' WHERE idmission='"+misiune.getIdmission()+"'");
+				StringBuilder query = new StringBuilder("UPDATE IocProject.mission SET mission_name='"+misiune.getMissionName()+"', pic_name='"+misiune.getPicName()+"', distress_level_id='"+misiune.getDistressLevel().getId()+"', participants='"+misiune.getParticipants()+"', max_participants='"+misiune.getMaxParticipants()+"', description='"+misiune.getDescription()+"', mission_type='"+misiune.getMissionType()+"' WHERE idmission='"+misiune.getIdmission()+"'");
 				if (statement.executeUpdate(query.toString()) > 0)
 					return true;
 				return false;
@@ -169,6 +169,80 @@ public class Manager {
 			sqlException.printStackTrace();
 		}
 	}
+	
+	public MapData getGridData(int missionId) {
+		try {
+			MapData ret = new MapData();
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			StringBuilder query = new StringBuilder("SELECT * FROM IocProject.map_data md LEFT OUTER JOIN IocProject.mission m on md.id = m.map_data_id WHERE m.idmission='"+Integer.toString(missionId)+"'");
+			ResultSet result = statement.executeQuery(query.toString());
+			
+			if (result != null && result.next()) {
+				ret.setId(Integer.parseInt(result.getString(1)));
+				ret.setCenter(result.getString(2));
+				System.out.println(result.getString(2));
+				ret.setZoom(result.getString(3));
+				System.out.println(result.getString(3));
+				ret.setVisitedSectors(result.getString(4));
+			}
+			return ret;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public DistressLevel getDistressLevel(int distressId) {
+		try {
+			DistressLevel ret = new DistressLevel();
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			StringBuilder query = new StringBuilder("SELECT * FROM IocProject.distress_level  WHERE id='"+Integer.toString(distressId)+"'");
+			ResultSet result = statement.executeQuery(query.toString());
+			
+			if (result != null && result.next()) {
+				ret.setId(Integer.parseInt(result.getString(1)));
+				System.out.println(query.toString());
+				System.out.println(Integer.parseInt(result.getString(1)));
+				ret.setDescription(result.getString(2));
+				System.out.println(result.getString(2));
+				ret.setColor(result.getString(3));
+				System.out.println(result.getString(3));
+			}
+			return ret;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public List<DistressLevel> getDistressLevelList() {
+		try {
+			List<DistressLevel> ret = new ArrayList<DistressLevel>();
+			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			StringBuilder query = new StringBuilder("SELECT * FROM IocProject.distress_level");
+			ResultSet result = statement.executeQuery(query.toString());
+			
+			while (result.next()) {
+				DistressLevel distressLevel = new DistressLevel();
+				distressLevel.setId(Integer.parseInt(result.getString(1)));
+				System.out.println(query.toString());
+				System.out.println(Integer.parseInt(result.getString(1)));
+				distressLevel.setDescription(result.getString(2));
+				System.out.println(result.getString(2));
+				distressLevel.setColor(result.getString(3));
+				System.out.println(result.getString(3));
+				ret.add(distressLevel);
+			}
+			return ret;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 /*	public int getType(String username, String password) {
 		DatabaseOperations databaseOperations = null;
 		try {

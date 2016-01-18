@@ -4,5 +4,7 @@
 		<class>com.ioc.rotw.entities.Mission</class>
 		<class>com.ioc.rotw.entities.MissionType</class>
 		<class>com.ioc.rotw.entities.User</class>
+		<class>com.ioc.rotw.entities.DistressLevel</class>
+		<class>com.ioc.rotw.entities.MapData</class>
 	</persistence-unit>
 </persistence>

@@ -23,13 +23,6 @@ public class IndexServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		manager = new Manager();
-		manager.deleteMissionEntity(201, "PERSON");
-		Mission mis = manager.getMissionEntity(202, "OBJECT");
-		manager.getMissionsByType("PERSON");
-		mis.setLevel(9001);
-		System.out.println(manager.addReplaceMission(mis));
-		mis.setIdmission(-1);
-		System.out.println(manager.addReplaceMission(mis));		
 	}
 
 	@Override
