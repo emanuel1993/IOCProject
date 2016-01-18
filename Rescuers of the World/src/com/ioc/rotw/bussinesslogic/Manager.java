@@ -130,7 +130,15 @@ public class Manager {
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			if (misiune.getIdmission() == 0) {
 				//inseram misiunea in baza de date	
-				StringBuilder query = new StringBuilder("INSERT INTO IocProject.mission VALUES(null, '"+misiune.getMissionName()+"','"+misiune.getPicName()+"','"+misiune.getDistressLevel().getId()+"','"+misiune.getParticipants()+"','"+misiune.getMaxParticipants()+"','"+misiune.getDescription()+"','"+misiune.getMissionType()+"');");
+				StringBuilder query = new StringBuilder("INSERT INTO IocProject.mission VALUES(null, "
+						+ "'"+misiune.getMissionName()+
+						"','"+misiune.getPicName()+
+						"','"+misiune.getParticipants()+
+						"','"+misiune.getMaxParticipants()+
+						"','"+misiune.getDescription()+
+						"','"+misiune.getMissionType()+
+						"','"+misiune.getDistressLevel().getId()+
+						"', 0);");
 				if (statement.executeUpdate(query.toString()) > 0)
 					return true;
 				return false;

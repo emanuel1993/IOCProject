@@ -58,8 +58,9 @@
 	display: table;
 	width: 600px;
 	height: 450px;
-	position: relative;
-	top: -456px;
+	position: absolute;
+	top: 445px;
+	left: 317px;
 	border: 0px;
 }
 

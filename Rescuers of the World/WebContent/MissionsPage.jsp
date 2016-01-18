@@ -25,9 +25,9 @@
 		</div>
 		<c:forEach var="mission" items="${missions}">
 			<div class="content" onclick="location.href='GetMissionServlet?mission_type=<c:out value="${mission.missionType}"></c:out>&mission_id=<c:out value="${mission.idmission}"></c:out>'">
-				<div class="distress row-border-distress">
+				<div class="distress row-border-distress" style="background-color: <c:out value="${mission.distressLevel.color}"></c:out>">
 					<p>
-						<c:out value="${mission.distressLevel.id}"></c:out>
+						<c:out value="${mission.distressLevel.description}"></c:out>
 					</p>
 				</div>
 				<div class="picture row-border">
